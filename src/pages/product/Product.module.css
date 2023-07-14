@@ -1,0 +1,82 @@
+.productContainer {
+    padding: 0 1.5rem;
+}
+
+.price {
+    color: #0ACF83;
+    font-size: 1rem;
+    font-weight: 700;
+    padding-top: 4rem;
+}
+
+.title {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.7rem;
+}
+
+.productInfo {
+    display: flex;
+    gap: 2rem;
+}
+
+.buttonInfo {
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.productImageContainer {
+    display: flex;
+    width: 100%;
+    height: 24rem;
+    
+    justify-content: center;
+    align-items: center;
+    border-radius: .6rem;
+    background: #F6F6F6;
+}
+
+.productImage {
+    width: 15.4375rem;
+    height: 17.83119rem;
+}
+
+.subtitle {
+    color:#000;
+font-size: 1rem;
+padding-top: 1.6rem;
+}
+
+.productReview {
+display: flex;
+
+}
+
+.reviewImageUser {
+    width: 2.5rem;
+height: 2.5rem;
+flex-shrink: 0;
+}
+
+.reviewUser {
+    color: var(--colors-default, #000);
+font-family: DM Sans;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.25rem; /* 125% */
+letter-spacing: 0.0125rem;
+}
+
+.starReview {
+    width: 18rem;
+}
+
+.reviewDescription {}
+
+.seeAll {}
+
+.buttonAdd {}
