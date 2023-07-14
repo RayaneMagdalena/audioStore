@@ -1,0 +1,75 @@
+.cardItem {
+    display: flex;
+    height: 4.6rem;
+    align-items: flex-start;
+    gap: 0.9rem;
+}
+
+.imageContainer {
+    width: 4.6875rem;
+    height: 4.6875rem;
+    border-radius: 0.625rem;
+background: var(--colors-grey-light-1, #F6F6F6);
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.cardImage {
+    width: 3.4rem;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    width: 14.7rem;
+    align-items: flex-start;
+}
+
+.cardTitle {
+    color: #000;
+    font-size: 1rem;
+}
+
+.cardPrice {
+    color: #000;
+    font-size: .8rem;
+    font-weight: 700;
+    padding-top: .2rem;
+    padding-bottom: .8rem;
+
+}
+
+.cardDetails {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    position: relative;
+    
+}
+
+.detailsContainer {
+    display: flex;
+}
+
+.iconStar {
+    width: 1rem;
+    height: 1rem;
+    }
+
+.iconMore {
+    width: 1.25rem;
+height: 1.25rem;
+position: absolute;
+top: -.3rem;
+left: 14.3rem;
+}
+
+.detail {
+    color: #000;
+font-size: 0.75rem;
+padding-right: .6rem;
+padding-left: .2rem;
+} 
