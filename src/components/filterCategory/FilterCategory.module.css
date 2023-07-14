@@ -1,0 +1,25 @@
+.containerFilter {
+    padding-bottom: 1.2rem;
+    display: flex;
+    width: 20.5rem;
+    justify-content: space-evenly;
+    gap: 0.6875rem;
+}
+
+.button {
+    width: 6.6rem;
+    padding: 0.2rem 0;
+    align-items: center;
+    line-height: 1.25rem;
+    border-radius: 2rem;
+    color: #7F7F7F;
+    font-size: .8rem;
+    border: none;
+    background-color: transparent;
+}
+
+.active {
+    background: #0ACF83;
+    color: #FFF;   
+}
+
