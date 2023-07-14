@@ -1,0 +1,38 @@
+.cardItem {
+    width: 10rem;
+    height: 14rem;
+    padding: .9rem .6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    border-radius: .9rem;
+    background-color: #FFF; 
+    justify-content: space-between;
+}
+
+.image {
+    width: 7.8125rem;
+    height: 7.8125rem;
+    }
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.title {
+    color: #000;
+font-size: 0.8rem;
+font-weight: 400;
+}
+
+.price {
+color: #000;
+font-size: 0.7rem;
+font-weight: 700;
+}
+
+.cardItem.special {
+    height: 17rem;
+    
+}
