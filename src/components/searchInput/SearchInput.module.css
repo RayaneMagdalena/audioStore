@@ -1,0 +1,29 @@
+.searchContainer {
+    width: 20.5rem;
+
+    position: relative;
+}
+
+.inputSearch {
+    width: 100%;
+    height: 2.8rem;
+    padding: 0rem 2.9rem;
+    border-radius: 0.625rem;
+    border: 1px solid #BABABA;
+    font-size: .8rem;
+}
+
+.inputSearch::placeholder {
+    color: #BABABA;
+}
+
+.inputSearch:focus {
+    outline: none;
+}
+
+
+.iconSearch {
+    position: absolute;
+    left: .9rem;
+    top: .6rem;
+}
