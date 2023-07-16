@@ -2,7 +2,6 @@
 import styles from "./AllProducts.module.css";
 // Icon
 import iconSlider from "../../../public/images/icon-sliders.svg";
-import iconX from "../../../public/images/icon-x.svg";
 // React-Router
 import { Link } from "react-router-dom";
 // Hooks
@@ -13,16 +12,15 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import "react-spring-bottom-sheet/dist/style.css";
 // Components
 import ProductCard from "../../components/productcard/ProductCard";
-import FilterCategory from "../../components/filterCategory/FilterCategory";
+import BottomSheetContent from "../../components/bottomSheetContent/BottomSheetContent";
+// Types
 import { Product } from "../../types/productType";
 
 const AllProducts = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("Headsets");
   const [sortBy, setSortBy] = useState<string>("rating");
-  const [filteredProducts, setFilteredProducts] = useState<
-    Product[]
-  >([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const { data: products } = useFetch();
 
@@ -97,109 +95,38 @@ const AllProducts = () => {
         </button>
 
         <BottomSheet open={open}>
-          <div className={styles.buttonSheet}>
-            <div className={styles.sheetHeader}>
-              <h2 className={styles.sheetTitle}>Filter</h2>
-              <button
-                onClick={() => setOpen(false)}
-                className={styles.sheetButtonX}
-              >
-                <img src={iconX} alt="" className={styles.sheetIconX} />
-              </button>
-            </div>
-
-            <p className={styles.sheetSubtitle}>Category</p>
-            <FilterCategory
-              selectedCategory={selectedCategory}
-              handleCategorySelect={handleCategorySelect}
-            />
-
-            <p className={styles.sheetSubtitle}>Sort By</p>
-            <div className={styles.sheetButtonsSort}>
-              <button
-                className={`${styles.sheetSortButton} ${
-                  sortBy === "rating" ? styles.active : ""
-                }`}
-                onClick={() => handleSortBySelect("rating")}
-              >
-                Popularity
-              </button>
-
-              <button
-                className={`${styles.sheetSortButton} ${
-                  sortBy === "newest" ? styles.active : ""
-                }`}
-                onClick={() => handleSortBySelect("newest")}
-              >
-                Newest
-              </button>
-
-              <button
-                className={`${styles.sheetSortButton} ${
-                  sortBy === "oldest" ? styles.active : ""
-                }`}
-                onClick={() => handleSortBySelect("oldest")}
-              >
-                Oldest
-              </button>
-
-              <button
-                className={`${styles.sheetSortButton} ${
-                  sortBy === "price-high" ? styles.active : ""
-                }`}
-                onClick={() => handleSortBySelect("price-high")}
-              >
-                High Price
-              </button>
-
-              <button
-                className={`${styles.sheetSortButton} ${
-                  sortBy === "price-low" ? styles.active : ""
-                }`}
-                onClick={() => handleSortBySelect("price-low")}
-              >
-                Low Price
-              </button>
-
-              <button
-                className={`${styles.sheetSortButton} ${
-                  sortBy === "reviews" ? styles.active : ""
-                }`}
-                onClick={() => handleSortBySelect("reviews")}
-              >
-                Review
-              </button>
-            </div>
-
-            <button className={styles.sheetButtonApply} onClick={applyFilter}>
-              Apply Filter
-            </button>
-          </div>
+        <BottomSheetContent
+            setOpen={setOpen}
+            selectedCategory={selectedCategory}
+            handleCategorySelect={handleCategorySelect}
+            sortBy={sortBy}
+            handleSortBySelect={handleSortBySelect}
+            applyFilter={applyFilter}
+          />
         </BottomSheet>
       </div>
 
       {/* ------------------CARDS------------------------*/}
       <div className={styles.cards}>
-        {(filteredProducts.length > 0
-          ? filteredProducts
-          : allProducts
-        ).map((product) => (
-          <Link
-            to={`/products/${product.id}`}
-            className={styles.link}
-            key={product.id}
-          >
-            <div className={styles.card}>
-              <ProductCard
-                name={product.name}
-                price={product.price}
-                reviews={product.reviews.length}
-                rating={product.rating}
-                renderCardDetails={true}
-              />
-            </div>
-          </Link>
-        ))}
+        {(filteredProducts.length > 0 ? filteredProducts : allProducts).map(
+          (product) => (
+            <Link
+              to={`/products/${product.id}`}
+              className={styles.link}
+              key={product.id}
+            >
+              <div className={styles.card}>
+                <ProductCard
+                  name={product.name}
+                  price={product.price}
+                  reviews={product.reviews.length}
+                  rating={product.rating}
+                  renderCardDetails={true}
+                />
+              </div>
+            </Link>
+          )
+        )}
       </div>
     </div>
   );
