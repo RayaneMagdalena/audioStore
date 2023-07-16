@@ -119,3 +119,9 @@ font-size: .8rem;
     font-weight: 700;
     border: none;
 }
+
+.active {
+    background: #0ACF83;
+    color: #FFF;   
+    border: none;
+}
