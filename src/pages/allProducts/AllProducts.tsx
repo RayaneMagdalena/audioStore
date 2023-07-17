@@ -44,7 +44,7 @@ const AllProducts = () => {
     setSortBy(sortOption);
   };
 
-  // Filter and ordering of products
+ // Filter and ordering of products
   const applyFilter = () => {
     const filteredProductsCategory = products.filter(
       (product) => product.category === selectedCategory
