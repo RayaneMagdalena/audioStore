@@ -5,11 +5,25 @@ import headset_2 from '../../../public/images/headset_2.svg'
 import starReview from '../../../public/images/starReview.svg'
 import user from '../../../public/images/user.svg';
 import Carousel from "../../components/carousel/Carousel";
+// context
+import { useContext } from "react";
+import { CartContext } from '../../contexts/CartContext'; 
+import { useNavigate } from 'react-router-dom';
 
 const Product = () => {
+  const { addToCart } = useContext(CartContext);
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
   const { data: products } = useFetch();
+
+//  Add product to cart
+const handleAddToCart = (product) => {
+  addToCart(product);
+  navigate("/cart")
+};
+
 
   if (!products) {
     return <div>Loading...</div>;
@@ -67,7 +81,9 @@ const Product = () => {
       products={products}
       />
 
-      <button className={styles.buttonAdd}>Add To Cart</button>
+      <button 
+      onClick={() => handleAddToCart(product)}
+      className={styles.buttonAdd}>Add To Cart</button>
     </div>
 
 
