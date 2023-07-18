@@ -9,7 +9,7 @@ import trash from "../../../public/images/icon-trash.svg";
 import chevron from "../../../public/images/button-icon-chevron-right.svg";
 
 const Cart = () => {
-  const { cartProducts } = useContext(CartContext);
+   const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart} = useContext(CartContext);
 
   return (
     <div className={styles.cartContainer}>
@@ -21,13 +21,33 @@ const Cart = () => {
             <h2>{product.price}</h2>
             <h1 className={styles.title}>{product.name}</h1>
             <p className={styles.price}>{product.price}</p>
+           
             <div className={styles.cardFunctions}>
+
               <div className={styles.quantityFunction}>
-                <img src={minus} alt="" className={styles.iconMinus} />
+                <img 
+                src={minus} 
+                alt="" 
+                className={styles.iconMinus}
+                onClick={() => decreaseQuantity(product.id)}
+                 />
+                
                 <p className={styles.quantifyItem}>{product.quantity}</p>
-                <img src={plus} alt="" className={styles.iconPlus} />
+                
+                <img 
+                src={plus} 
+                alt="" 
+                className={styles.iconPlus} 
+                onClick={() => increaseQuantity(product.id)}
+                />
               </div>
-              <img src={trash} alt="" className={styles.iconDelete} />
+              
+              <img
+               src={trash} 
+               alt="" 
+               className={styles.iconDelete} 
+               onClick={() => removeFromCart(product.id)}
+               />
             </div>
           </div>
         ))}
