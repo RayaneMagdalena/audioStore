@@ -7,25 +7,41 @@ import minus from "../../../public/images/icon-minus.svg";
 import trash from "../../../public/images/icon-trash.svg";
 import chevron from "../../../public/images/button-icon-chevron-right.svg";
 // Hook
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 // Context
 import { CartContext } from "../../contexts/CartContext";
 
 const Cart = () => {
-  const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart } = useContext(CartContext);
+  const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart } =
+    useContext(CartContext);
+
+  const totalPrice = useMemo(() => {
+    const total = cartProducts.reduce((accumulator, product) => {
+      const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
+      return accumulator + productPrice * product.quantity;
+    }, 0);
+
+    return total.toFixed(2);
+  }, [cartProducts]);
+
+  const totalItems = useMemo(() => {
+    const total = cartProducts.reduce((accumulator, product) => {
+      return accumulator + product.quantity;
+    }, 0);
+
+    return total;
+  }, [cartProducts]);
 
   return (
     <div className={styles.cardCartContainer}>
-      
       <div>
         {cartProducts.map((product) => (
           <div key={product.id} className={styles.cardCart}>
-            
             <img src={headset} alt="" className={styles.imageCart} />
-          
+
             <div>
               <h1 className={styles.title}>{product.name}</h1>
-             
+
               <p className={styles.price}>{product.price}</p>
 
               <div className={styles.cardFunctions}>
@@ -59,21 +75,16 @@ const Cart = () => {
         ))}
       </div>
 
-
       <div>
         <div className={styles.buyInfo}>
-          <p className={styles.totalItems}>Total {cartProducts.length} items</p>
-          <p className={styles.totalPrice}>USD 295</p>
+          <p className={styles.totalItems}>Total {totalItems} items</p>
+          <p className={styles.totalPrice}>USD {totalPrice}</p>
         </div>
 
         <button className={styles.checkoutButton}>
           <p className={styles.titleButton}>Proceed to Checkout</p>
-         
-          <img 
-          rc={chevron} 
-          alt="" 
-          className={styles.iconChevron} 
-          />
+
+          <img src={chevron} alt="" className={styles.iconChevron} />
         </button>
       </div>
     </div>

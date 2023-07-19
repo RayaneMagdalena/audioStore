@@ -4,7 +4,7 @@ import React, { createContext, useState } from 'react';
 type CartProduct = {
   id: number;
   name: string;
-  price: number;
+  price: string;
   quantity: number;
 };
 
