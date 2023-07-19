@@ -1,4 +1,3 @@
-
 // Styles
 import styles from "./Cart.module.css";
 // Image and Icon
@@ -13,59 +12,68 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 const Cart = () => {
-   const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart} = useContext(CartContext);
+  const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart } = useContext(CartContext);
 
   return (
-    <div className={styles.cartContainer}>
-      <div className={styles.cardCart}>
-        <img src={headset} alt="" className={styles.imageCart} />
-
+    <div className={styles.cardCartContainer}>
+      
+      <div>
         {cartProducts.map((product) => (
-          <div key={product.id}>
-            <h2>{product.price}</h2>
-            <h1 className={styles.title}>{product.name}</h1>
-            <p className={styles.price}>{product.price}</p>
-           
-            <div className={styles.cardFunctions}>
+          <div key={product.id} className={styles.cardCart}>
+            
+            <img src={headset} alt="" className={styles.imageCart} />
+          
+            <div>
+              <h1 className={styles.title}>{product.name}</h1>
+             
+              <p className={styles.price}>{product.price}</p>
 
-              <div className={styles.quantityFunction}>
-                <img 
-                src={minus} 
-                alt="" 
-                className={styles.iconMinus}
-                onClick={() => decreaseQuantity(product.id)}
-                 />
-                
-                <p className={styles.quantifyItem}>{product.quantity}</p>
-                
-                <img 
-                src={plus} 
-                alt="" 
-                className={styles.iconPlus} 
-                onClick={() => increaseQuantity(product.id)}
+              <div className={styles.cardFunctions}>
+                <div className={styles.quantityFunction}>
+                  <img
+                    src={minus}
+                    alt=""
+                    className={styles.iconMinus}
+                    onClick={() => decreaseQuantity(product.id)}
+                  />
+
+                  <p className={styles.quantifyItem}>{product.quantity}</p>
+
+                  <img
+                    src={plus}
+                    alt=""
+                    className={styles.iconPlus}
+                    onClick={() => increaseQuantity(product.id)}
+                  />
+                </div>
+
+                <img
+                  src={trash}
+                  alt=""
+                  className={styles.iconDelete}
+                  onClick={() => removeFromCart(product.id)}
                 />
               </div>
-              
-              <img
-               src={trash} 
-               alt="" 
-               className={styles.iconDelete} 
-               onClick={() => removeFromCart(product.id)}
-               />
             </div>
           </div>
         ))}
       </div>
 
+
       <div>
-        <div className={styles.totalPurchase}>
+        <div className={styles.buyInfo}>
           <p className={styles.totalItems}>Total {cartProducts.length} items</p>
           <p className={styles.totalPrice}>USD 295</p>
         </div>
 
         <button className={styles.checkoutButton}>
           <p className={styles.titleButton}>Proceed to Checkout</p>
-          <img src={chevron} alt="" className={styles.iconChevron} />
+         
+          <img 
+          rc={chevron} 
+          alt="" 
+          className={styles.iconChevron} 
+          />
         </button>
       </div>
     </div>
@@ -73,4 +81,3 @@ const Cart = () => {
 };
 
 export default Cart;
-

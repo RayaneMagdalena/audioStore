@@ -1,24 +1,24 @@
-.cartContainer {
+.cardCartContainer {
     height: 100vh;
-padding: 1.9rem 1.5rem;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+    padding: 1.9rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
 }
 
 .cardCart {
     display: flex;
-    /* width: 20.375rem; */
-    align-items: flex-start;
     gap: .9rem;
+    margin-bottom: 2rem;
 }
 
 .imageCart {
     width: 5.4rem;
     height: 5.4rem;
-    padding: .6rem;  
+    padding: .6rem;
     border-radius: 0.625rem;
-background-color: #F6F6F6;
+    background-color: #F6F6F6;
 }
 
 .cardContent {
@@ -46,19 +46,20 @@ background-color: #F6F6F6;
     display: flex;
     justify-content: space-between;
     align-items: center;
-   }
+    width: 14rem;
+}
 
 .quantityFunction {
-display: flex;
-gap: 1.5rem;
-align-items: center;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .iconMinus {
     width: 1.875rem;
-       padding: .2rem;
+    padding: .2rem;
     border-radius: 0.625rem;
-border: 1px solid var(--colors-grey, #BABABA);
+    border: 1px solid #BABABA;
 }
 
 .quantifyItem {
@@ -69,8 +70,8 @@ border: 1px solid var(--colors-grey, #BABABA);
 .iconPlus {
     width: 1.875rem;
     padding: .2rem;
- border-radius: 0.625rem;
-border: 1px solid var(--colors-grey, #BABABA);
+    border-radius: 0.625rem;
+    border: 1px solid #BABABA;
 }
 
 .iconDelete {
@@ -79,10 +80,10 @@ border: 1px solid var(--colors-grey, #BABABA);
     opacity: 0.5;
 }
 
-.totalPurchase {
-display: flex;
-justify-content: space-between;
-align-items: center;
+.buyInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .totalItems {
@@ -93,7 +94,7 @@ align-items: center;
 }
 
 .totalPrice {
-    color:#000;
+    color: #000;
     font-size: 1rem;
     font-weight: 700;
 }
@@ -107,14 +108,13 @@ align-items: center;
     align-items: center;
     border: none;
     border-radius: .6rem;
-background: #0ACF83;
-margin-top: 1.3rem;
+    background: #0ACF83;
+    margin-top: 1.3rem;
 }
 
 .titleButton {
-    color:#FFF;
+    color: #FFF;
     font-size: .8rem;
     font-weight: 700;
     line-height: 1.25rem;
 }
-
