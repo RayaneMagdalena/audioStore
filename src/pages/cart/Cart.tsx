@@ -1,12 +1,16 @@
 
-import { useContext } from "react";
-import { CartContext } from "../../contexts/CartContext";
+// Styles
 import styles from "./Cart.module.css";
+// Image and Icon
 import headset from "../../../public/images/headset.png";
 import plus from "../../../public/images/icon-plus.svg";
 import minus from "../../../public/images/icon-minus.svg";
 import trash from "../../../public/images/icon-trash.svg";
 import chevron from "../../../public/images/button-icon-chevron-right.svg";
+// Hook
+import { useContext } from "react";
+// Context
+import { CartContext } from "../../contexts/CartContext";
 
 const Cart = () => {
    const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart} = useContext(CartContext);
