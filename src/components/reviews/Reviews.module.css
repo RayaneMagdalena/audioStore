@@ -1,0 +1,35 @@
+
+.productReview {
+    display: flex;
+    
+    }
+    
+    .reviewImageUser {
+        width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    }
+    
+    .reviewUser {
+        color: var(--colors-default, #000);
+    font-family: DM Sans;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+    letter-spacing: 0.0125rem;
+    }
+
+    .starReviewContent {
+display: flex;
+gap: 0.3rem;
+    }
+    
+    .starReview {
+                width: 1rem;
+height: 1rem;
+    }
+    
+    .reviewDescription {
+      color: #000;
+    }
