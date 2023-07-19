@@ -15,6 +15,11 @@ const Cart = () => {
   const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart } =
     useContext(CartContext);
 
+    const totalProductPrice = (product) => {
+      const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
+      return (productPrice * product.quantity).toFixed(2);
+    };
+
   const totalPrice = useMemo(() => {
     const total = cartProducts.reduce((accumulator, product) => {
       const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
@@ -42,7 +47,8 @@ const Cart = () => {
             <div>
               <h1 className={styles.title}>{product.name}</h1>
 
-              <p className={styles.price}>{product.price}</p>
+              <p className={styles.price}>USD {totalProductPrice(product)}</p>
+
 
               <div className={styles.cardFunctions}>
                 <div className={styles.quantityFunction}>
