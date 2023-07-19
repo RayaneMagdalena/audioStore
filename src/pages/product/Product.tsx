@@ -4,6 +4,7 @@ import styles from "./Product.module.css";
 import headset_2 from "../../../public/images/headset_2.svg";
 // hooks
 import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 // Components
 import Reviews from "../../components/reviews/Reviews";
@@ -28,19 +29,26 @@ interface Review {
 }
 
 const Product = () => {
+  // Params and Context
+  const { id } = useParams<{ id: string }>();
   const { addToCart } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const { id } = useParams<{ id: string }>();
-
+  // State and hooks
+  const [activeButton, setActiveButton] = useState("overview");
   const { data: products } = useFetch();
 
-  //  Add product to cart
+  //  Event handlers
   const handleAddToCart = (product: Product) => {
     addToCart(product);
     navigate("/cart");
   };
 
+  const handleButtonClick = (button: string) => {
+    setActiveButton(button);
+  };
+
+// Data and loading checks
   if (!products) {
     return <div>Loading...</div>;
   }
@@ -54,38 +62,73 @@ const Product = () => {
 
   return (
     <div className={styles.productContainer}>
+      
       <p className={styles.price}>{product.price}</p>
       <h1 className={styles.title}>{product.name}</h1>
 
       <div className={styles.productInfo}>
-        <button className={styles.buttonInfo}>Overview</button>
-        <button className={styles.buttonInfo}>Features</button>
+        <button
+          className={styles.buttonInfo}
+          onClick={() => handleButtonClick("overview")}
+        >
+          Overview
+        </button>
+        
+        {activeButton === "overview" && <div className={styles.lineOverview} />}
+
+        <button
+          className={styles.buttonInfo}
+          onClick={() => handleButtonClick("features")}
+        >
+          Features
+        </button>
+        
+        {activeButton === "features" && <div className={styles.lineFeatures} />}
       </div>
 
-      <div className={styles.productImageContainer}>
-        <img src={headset_2} alt="" className={styles.productImage} />
-      </div>
+      {activeButton === "overview" && (
+        <div>
+          <div className={styles.productImageContainer}>
+            <img 
+            src={headset_2} 
+            alt="" 
+            className={styles.productImage} 
+            />
+          </div>
 
-      <p className={styles.subtitle}>Reviews ({product.reviews.length})</p>
+          <p className={styles.subtitleReview}>
+            Reviews ({product.reviews.length})
+          </p>
 
-      <Reviews reviews={product.reviews} />
+          <Reviews reviews={product.reviews} />
 
-      <p className={styles.subtitle}>
-        Another Product{" "}
-        <Link to="/products" className={styles.seeAll}>
-          {" "}
-          See All
-        </Link>
-      </p>
+          <div className={styles.carouselContainer}>
+            <p className={styles.subtitle}>
+              Another Product
+              <Link to="/products"
+               className={styles.seeAll}>
+                See All
+              </Link>
+            </p>
 
-      <Carousel products={products} />
+            <Carousel products={products} />
+          </div>
 
-      <button
-        onClick={() => handleAddToCart(product)}
-        className={styles.buttonAdd}
-      >
-        Add To Cart
-      </button>
+          <button
+            onClick={() => handleAddToCart(product)}
+            className={styles.buttonAdd}
+          >
+            Add To Cart
+          </button>
+        </div>
+      )}
+
+      {activeButton === "features" && (
+        <div className={styles.pageDetails}>
+          <h2 className={styles.titleDetails}>Highly Detailed Audio</h2>
+          <p className={styles.contentDetails}>{product.description}</p>
+        </div>
+      )}
     </div>
   );
 };

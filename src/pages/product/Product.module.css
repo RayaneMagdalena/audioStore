@@ -1,23 +1,23 @@
-.productContainer {
-    padding: 0 1.5rem;
-}
-
 .price {
     color: #0ACF83;
     font-size: 1rem;
     font-weight: 700;
     padding-top: 4rem;
+    padding-left: 1.5rem;
 }
 
 .title {
     color: #000;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7rem;
+    padding: 0 1.5rem;
 }
 
 .productInfo {
     display: flex;
     gap: 2rem;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
 .buttonInfo {
@@ -25,14 +25,31 @@
     background-color: transparent;
     font-size: 1rem;
     margin-top: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.3rem;
+}
+
+.lineOverview {
+    width: 1.5rem;
+    height: 0.1875rem;
+    background: #0ACF83;
+    position: absolute;
+    top: 2.8rem;
+    left: 2.8rem;
+}
+
+.lineFeatures {
+    width: 1.5rem;
+    height: 0.1875rem;
+    background: #0ACF83;
+    position: absolute;
+    top: 2.8rem;
+    left: 8.8rem;
 }
 
 .productImageContainer {
     display: flex;
-    width: 100%;
     height: 24rem;
-    
+    margin: 0 1.5rem;
     justify-content: center;
     align-items: center;
     border-radius: .6rem;
@@ -42,41 +59,67 @@
 .productImage {
     width: 15.4375rem;
     height: 17.83119rem;
+    
 }
 
 .subtitle {
-    color:#000;
-font-size: 1rem;
-padding-top: 1.6rem;
+    color: #000;
+    font-size: 1rem;
+    padding-top: 1.6rem;
+    padding-left: 1.5rem;
+    padding-bottom: 1.2rem;
 }
 
-.productReview {
-display: flex;
-
+.subtitleReview {
+    color: #000;
+    font-size: 1rem;
+    padding: 1.6rem 0 2.8rem 1.5rem;
 }
 
-.reviewImageUser {
-    width: 2.5rem;
-height: 2.5rem;
-flex-shrink: 0;
+.carouselContainer {
+    margin-top: 2.7rem;
+    background: #F6F6F6;
+    width: 23.5625rem;
+    height: 19.9375rem;
+    flex-shrink: 0;
+    padding-left: 1.5rem;
 }
 
-.reviewUser {
-    color: var(--colors-default, #000);
-font-family: DM Sans;
-font-size: 1rem;
-font-style: normal;
-font-weight: 400;
-line-height: 1.25rem; /* 125% */
-letter-spacing: 0.0125rem;
+.seeAll {
+    text-decoration: none;
+    color: #7F7F7F;
+    font-size: .8rem;
+    padding-left: 9rem;
 }
 
-.starReview {
-    width: 18rem;
+.buttonAdd {
+    width: 20.375rem;
+    height: 3rem;
+    padding: 1.2rem .6rem;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: .6rem;
+    background-color: #0ACF83;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 2.6rem 1.5rem
 }
 
-.reviewDescription {}
+.pageDetails {
+    padding: 0 1.5rem;
+}
 
-.seeAll {}
+.titleDetails {
+    color: #000;
+    font-size: 1rem;
+    padding-bottom: .8rem;
+}
 
-.buttonAdd {}
+.contentDetails {
+    color: #000;
+    font-size: .8rem;
+    line-height: 1.375rem;
+}
