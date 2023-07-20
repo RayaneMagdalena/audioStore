@@ -9,6 +9,7 @@ import { useFetch } from "../../hooks/useFetch";
 // Components
 import Reviews from "../../components/reviews/Reviews";
 import Carousel from "../../components/carousel/Carousel";
+import  NavBar  from "../../components/navBar/NavBar";
 // context
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
@@ -62,6 +63,8 @@ const Product = () => {
 
   return (
     <div className={styles.productContainer}>
+
+      <NavBar />
       
       <p className={styles.price}>{product.price}</p>
       <h1 className={styles.title}>{product.name}</h1>

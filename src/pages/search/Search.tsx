@@ -6,6 +6,7 @@ import { useFetch } from "../../hooks/useFetch";
 // Components
 import SearchInput from "../../components/searchInput/SearchInput";
 import CardSearch from "../../components/cardSearch/CardSearch";
+import NavBar from "../../components/navBar/NavBar";
 
 const Search = () => {
   const [search, setSearch] = useState<string>("");
@@ -29,7 +30,13 @@ const Search = () => {
 
   return (
     <div className={styles.searchContainer}>
+      <NavBar 
+      title={"Search"}
+      />
+
+<div className={styles.searchInput}>
       <SearchInput search={search} setSearch={setSearch} />
+</div>
 
       {search.length > 0 ? (
         searchProducts.length > 0 ? (

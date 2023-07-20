@@ -13,6 +13,7 @@ import "react-spring-bottom-sheet/dist/style.css";
 // Components
 import ProductCard from "../../components/productcard/ProductCard";
 import BottomSheetContent from "../../components/bottomSheetContent/BottomSheetContent";
+import NavBar from "../../components/navBar/NavBar";
 // Types
 import { Product } from "../../types/productType";
 
@@ -85,6 +86,9 @@ const AllProducts = () => {
 
   return (
     <div className={styles.productsContainer}>
+
+<NavBar />
+
       <div className={styles.header}>
         <p className={styles.feature}>Featured products</p>
         <h1 className={styles.title}>See all products</h1>

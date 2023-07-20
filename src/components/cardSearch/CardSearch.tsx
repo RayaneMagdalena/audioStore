@@ -5,14 +5,14 @@ import headset from "../../../public/images/headset.png";
 import star from "../../../public/images/star-filled.svg";
 import more from "../../../public/images/icon-more-vertical.svg";
 
-interface ProductCardProps {
+interface CardSearchProps {
   name: string;
   price: string;
   rating: number;
   reviews: number;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({
+const CardSearch: React.FC<CardSearchProps> = ({
   name,
   price,
   rating,
@@ -57,4 +57,4 @@ const ProductCard: React.FC<ProductCardProps> = ({
   );
 };
 
-export default ProductCard;
+export default CardSearch;

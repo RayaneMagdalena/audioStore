@@ -8,6 +8,8 @@ import trash from "../../../public/images/icon-trash.svg";
 import chevron from "../../../public/images/button-icon-chevron-right.svg";
 // Hook
 import { useContext, useMemo } from "react";
+// Component
+
 // Context
 import { CartContext } from "../../contexts/CartContext";
 
@@ -15,11 +17,13 @@ const Cart = () => {
   const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart } =
     useContext(CartContext);
 
+    // Product price X quantity
     const totalProductPrice = (product) => {
       const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
       return (productPrice * product.quantity).toFixed(2);
     };
 
+    // Total purchase price
   const totalPrice = useMemo(() => {
     const total = cartProducts.reduce((accumulator, product) => {
       const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
@@ -29,6 +33,7 @@ const Cart = () => {
     return total.toFixed(2);
   }, [cartProducts]);
 
+  // Total number of items
   const totalItems = useMemo(() => {
     const total = cartProducts.reduce((accumulator, product) => {
       return accumulator + product.quantity;
@@ -37,8 +42,12 @@ const Cart = () => {
     return total;
   }, [cartProducts]);
 
+
   return (
     <div className={styles.cardCartContainer}>
+
+ 
+
       <div>
         {cartProducts.map((product) => (
           <div key={product.id} className={styles.cardCart}>
