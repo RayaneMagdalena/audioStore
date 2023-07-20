@@ -12,8 +12,8 @@ import { useState, FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 // firebase
-import {auth, provider} from '../../services/firebase';
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import {auth, provider, providerFacebook} from '../../services/firebase';
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth'
 
 const SignIn = () => {
     const navigate = useNavigate();
@@ -54,6 +54,24 @@ const SignIn = () => {
       const credential = GoogleAuthProvider.credentialFromError(error);
       console.log(errorCode, errorMessage, email, credential);
     });
+  }
+
+  // Login with Facebook
+  const handleClickFacebook = (e) => {
+    e.preventDefault(); 
+    signInWithPopup(auth, providerFacebook)
+  .then((result) => {
+    const user = result.user;
+
+    const credential = FacebookAuthProvider.credentialFromResult(result);
+    const accessToken = credential.accessToken;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.customData.email;
+    const credential = FacebookAuthProvider.credentialFromError(error);
+  });
   }
  
 
@@ -106,7 +124,9 @@ const SignIn = () => {
           />
         </button>
 
-        <button>
+        <button
+        onClick={handleClickFacebook}
+        >
           <img 
           src={facebook} 
           alt=""
