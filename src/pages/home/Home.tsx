@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
 // Components
+import NavBarHome from "../../components/navBarHome/NavBarHome";
 import SearchInput from "../../components/searchInput/SearchInput";
 import Carousel from "../../components/carousel/Carousel";
 import FilterCategory from "../../components/filterCategory/FilterCategory";
@@ -35,6 +36,7 @@ const Home = () => {
   return (
     <div>
       <div className={styles.greetingAndSearch}>
+      <NavBarHome />
         <p className={styles.greeting}>Hi, Andrea</p>
 
         <h1 className={styles.title}>What are you looking for today?</h1>
