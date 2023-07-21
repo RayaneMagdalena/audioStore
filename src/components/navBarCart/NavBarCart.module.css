@@ -1,0 +1,15 @@
+.navBarContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+}
+
+.title {
+    color: #000;
+font-size: 1rem;
+}

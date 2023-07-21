@@ -9,7 +9,7 @@ import chevron from "../../../public/images/button-icon-chevron-right.svg";
 // Hook
 import { useContext, useMemo } from "react";
 // Component
-
+import NavBarCart from "../../components/navBarCart/NavBarCart";
 // Context
 import { CartContext } from "../../contexts/CartContext";
 
@@ -17,13 +17,13 @@ const Cart = () => {
   const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart } =
     useContext(CartContext);
 
-    // Product price X quantity
-    const totalProductPrice = (product) => {
-      const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
-      return (productPrice * product.quantity).toFixed(2);
-    };
+  // Product price X quantity
+  const totalProductPrice = (product) => {
+    const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
+    return (productPrice * product.quantity).toFixed(2);
+  };
 
-    // Total purchase price
+  // Total purchase price
   const totalPrice = useMemo(() => {
     const total = cartProducts.reduce((accumulator, product) => {
       const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
@@ -42,65 +42,63 @@ const Cart = () => {
     return total;
   }, [cartProducts]);
 
-
   return (
-    <div className={styles.cardCartContainer}>
+    <div>
+      <NavBarCart />
+      <div className={styles.cardCartContainer}>
+        <div>
+          {cartProducts.map((product) => (
+            <div key={product.id} className={styles.cardCart}>
+              <img src={headset} alt="" className={styles.imageCart} />
 
- 
+              <div>
+                <h1 className={styles.title}>{product.name}</h1>
 
-      <div>
-        {cartProducts.map((product) => (
-          <div key={product.id} className={styles.cardCart}>
-            <img src={headset} alt="" className={styles.imageCart} />
+                <p className={styles.price}>USD {totalProductPrice(product)}</p>
 
-            <div>
-              <h1 className={styles.title}>{product.name}</h1>
+                <div className={styles.cardFunctions}>
+                  <div className={styles.quantityFunction}>
+                    <img
+                      src={minus}
+                      alt=""
+                      className={styles.iconMinus}
+                      onClick={() => decreaseQuantity(product.id)}
+                    />
 
-              <p className={styles.price}>USD {totalProductPrice(product)}</p>
+                    <p className={styles.quantifyItem}>{product.quantity}</p>
 
+                    <img
+                      src={plus}
+                      alt=""
+                      className={styles.iconPlus}
+                      onClick={() => increaseQuantity(product.id)}
+                    />
+                  </div>
 
-              <div className={styles.cardFunctions}>
-                <div className={styles.quantityFunction}>
                   <img
-                    src={minus}
+                    src={trash}
                     alt=""
-                    className={styles.iconMinus}
-                    onClick={() => decreaseQuantity(product.id)}
-                  />
-
-                  <p className={styles.quantifyItem}>{product.quantity}</p>
-
-                  <img
-                    src={plus}
-                    alt=""
-                    className={styles.iconPlus}
-                    onClick={() => increaseQuantity(product.id)}
+                    className={styles.iconDelete}
+                    onClick={() => removeFromCart(product.id)}
                   />
                 </div>
-
-                <img
-                  src={trash}
-                  alt=""
-                  className={styles.iconDelete}
-                  onClick={() => removeFromCart(product.id)}
-                />
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      <div>
-        <div className={styles.buyInfo}>
-          <p className={styles.totalItems}>Total {totalItems} items</p>
-          <p className={styles.totalPrice}>USD {totalPrice}</p>
+          ))}
         </div>
 
-        <button className={styles.checkoutButton}>
-          <p className={styles.titleButton}>Proceed to Checkout</p>
+        <div>
+          <div className={styles.buyInfo}>
+            <p className={styles.totalItems}>Total {totalItems} items</p>
+            <p className={styles.totalPrice}>USD {totalPrice}</p>
+          </div>
 
-          <img src={chevron} alt="" className={styles.iconChevron} />
-        </button>
+          <button className={styles.checkoutButton}>
+            <p className={styles.titleButton}>Proceed to Checkout</p>
+
+            <img src={chevron} alt="" className={styles.iconChevron} />
+          </button>
+        </div>
       </div>
     </div>
   );
