@@ -87,7 +87,7 @@ const AllProducts = () => {
   return (
     <div className={styles.productsContainer}>
 
-<NavBar />
+<NavBar title={""}/>
 
       <div className={styles.header}>
         <p className={styles.feature}>Featured products</p>

@@ -3,6 +3,8 @@ import styles from "./CarouselFilter.module.css";
 // Image and Icon
 import headset from "../../../public/images/headset.png";
 import iconArrow from "../../../public/images/icon-arrow-right.svg";
+// React-Router
+import { Link } from "react-router-dom";
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 // Types
@@ -18,7 +20,7 @@ const CarouselFilter:  React.FC<CarouselFilterProps> = ({ products }) => {
       <Swiper slidesPerView={1.03}>
         {products.map((product) => (
           <SwiperSlide key={product.id}>
-           
+           <Link to={`/products/${product.id}`} className={styles.link}>
             <div className={styles.cardItem}>
               
               <div className={styles.cardDetails}>
@@ -39,9 +41,10 @@ const CarouselFilter:  React.FC<CarouselFilterProps> = ({ products }) => {
               src={headset} 
               alt=""
               className={styles.cardImage}
-               />
+              />
                       
             </div>
+              </Link>
          
           </SwiperSlide>
         ))}

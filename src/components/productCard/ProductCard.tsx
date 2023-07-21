@@ -26,6 +26,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const cardClasses = `${styles.cardItem} ${renderCardDetails ? styles['special'] : ''}`;
 
   return (
+
+
+
     <div className={cardClasses}>
 
       <img src={headset} alt="" className={styles.image} />
@@ -41,6 +44,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       />}
      
     </div>
+   
   );
 };
 
