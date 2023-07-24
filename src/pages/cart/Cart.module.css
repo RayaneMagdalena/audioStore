@@ -1,116 +1,43 @@
+.emptyCart {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+
+}
+
+.emptyCartMessage {
+    color: #000;
+    font-size: 1rem;
+}
+
+.emptyCartButton {
+    display: flex;
+    width: 20.375rem;
+    height: 3.125rem;
+    padding: 1.25rem 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    background: #0ACF83;
+    border: none;
+    color: #FFF;
+    font-size: 1rem;
+    border-radius: 0.625rem;
+    background: #0ACF83;
+    cursor: pointer;
+}
+
 .cardCartContainer {
     height: 91vh;
     padding: 1.9rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.emptyCart {
-height: 80vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 6rem;
-
-}
-
-.emptyCartMessage {
-color: #000;
-font-size: 1rem;
-}
-
-.emptyCartButton {
-    display: flex;
-width: 20.375rem;
-height: 3.125rem;
-padding: 1.25rem 0.625rem;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 0.625rem;
-flex-shrink: 0;
-background: #0ACF83;
-border: none;
-color: #FFF;
-font-size: 1rem;
-border-radius: 0.625rem;
-background: #0ACF83;
-cursor: pointer;
-}
-
-.cardCart {
-    display: flex;
-    gap: .9rem;
-    margin-bottom: 2rem;
-}
-
-.imageCart {
-    width: 5.4rem;
-    height: 5.4rem;
-    padding: .6rem;
-    border-radius: 0.625rem;
-    background-color: #F6F6F6;
-}
-
-.cardContent {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.title {
-    color: #000;
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-.price {
-    padding-top: .3rem;
-    color: #000;
-    font-size: .8rem;
-    font-weight: 700;
-}
-
-.cardFunctions {
-    padding-top: .8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 14rem;
-}
-
-.quantityFunction {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.iconMinus {
-    width: 1.875rem;
-    padding: .2rem;
-    border-radius: 0.625rem;
-    border: 1px solid #BABABA;
-}
-
-.quantifyItem {
-    color: #000;
-    font-size: 1rem;
-}
-
-.iconPlus {
-    width: 1.875rem;
-    padding: .2rem;
-    border-radius: 0.625rem;
-    border: 1px solid #BABABA;
-}
-
-.iconDelete {
-    width: 1.25rem;
-    height: 1.25rem;
-    opacity: 0.5;
 }
 
 .buyInfo {

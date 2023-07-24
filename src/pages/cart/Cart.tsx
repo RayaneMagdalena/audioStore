@@ -12,6 +12,7 @@ import { useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 // Component
 import NavBarCart from "../../components/navBarCart/NavBarCart";
+import CardCart from "../../components/cardCart/CardCart";
 // Context
 import { CartContext } from "../../contexts/CartContext";
 
@@ -61,44 +62,19 @@ const handleBacktoStore = () => {
         ) : (
           // Carrinho com produtos
           <div className={styles.cardCartContainer}>
+            <div className={styles.cards}>
             {cartProducts.map((product) => (
-              <div key={product.id} className={styles.cardCart}>
-                <img src={headset} alt="" className={styles.imageCart} />
-
-                <div>
-                  <h1 className={styles.title}>{product.name}</h1>
-
-                  <p className={styles.price}>USD {productPrice(product.price)}</p>
-
-                  <div className={styles.cardFunctions}>
-                    <div className={styles.quantityFunction}>
-                      <img
-                        src={minus}
-                        alt=""
-                        className={styles.iconMinus}
-                        onClick={() => decreaseQuantity(product.id)}
-                      />
-
-                      <p className={styles.quantifyItem}>{product.quantity}</p>
-
-                      <img
-                        src={plus}
-                        alt=""
-                        className={styles.iconPlus}
-                        onClick={() => increaseQuantity(product.id)}
-                      />
-                    </div>
-
-                    <img
-                      src={trash}
-                      alt=""
-                      className={styles.iconDelete}
-                      onClick={() => removeFromCart(product.id)}
-                    />
-                  </div>
-                </div>
+              <div key={product.id} >
+                <CardCart
+                 product={product}
+                 productPrice={productPrice}
+                 increaseQuantity={increaseQuantity}
+                 decreaseQuantity={decreaseQuantity}
+                 removeFromCart={removeFromCart}
+                 />
               </div>
             ))}
+            </div>
 
             <div>
               <div className={styles.buyInfo}>
