@@ -3,10 +3,13 @@ import styles from "./Search.module.css";
 // Hooks
 import { useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
+// React-Router
+import { Link } from "react-router-dom";
 // Components
 import SearchInput from "../../components/searchInput/SearchInput";
 import CardSearch from "../../components/cardSearch/CardSearch";
 import NavBar from "../../components/navBar/NavBar";
+
 
 const Search = () => {
   const [search, setSearch] = useState<string>("");
@@ -44,12 +47,14 @@ const Search = () => {
           <div>
             {searchProducts.map((product) => (
               <div key={product.id} className={styles.products}>
+                <Link to={`/products/${product.id}`} className={styles.link}>
                 <CardSearch
                   name={product.name}
                   price={product.price}
                   rating={product.rating}
                   reviews={product.reviews.length}
                 />
+                </Link>
               </div>
             ))}
           </div>
@@ -62,12 +67,14 @@ const Search = () => {
 
             {topRatedProducts.map((product) => (
               <div key={product.id} className={styles.products}>
+                 <Link to={`/products/${product.id}`} className={styles.link}>
                 <CardSearch
                   name={product.name}
                   price={product.price}
                   rating={product.rating}
                   reviews={product.reviews.length}
                 />
+                </Link>
               </div>
             ))}
           </div>
@@ -79,12 +86,14 @@ const Search = () => {
 
           {topRatedProducts.map((product) => (
             <div key={product.id} className={styles.products}>
+               <Link to={`/products/${product.id}`} className={styles.link}>
               <CardSearch
                 name={product.name}
                 price={product.price}
                 rating={product.rating}
                 reviews={product.reviews.length}
               />
+              </Link>
             </div>
           ))}
         </div>

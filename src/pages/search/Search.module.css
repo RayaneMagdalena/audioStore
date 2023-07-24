@@ -17,6 +17,9 @@ padding-top: 1.87rem ;
 padding: 1.8rem  0 0 1.5rem;
 }
 
+.link {
+text-decoration: none;
+}
 
 .notProduct {
     color: #000;
