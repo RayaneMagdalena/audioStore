@@ -21,10 +21,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
   renderCardDetails 
 }) => {
 
+  const productPrice = (price: string) => {
+    return parseFloat(price.replace(/[^0-9.]+/g, "")).toFixed(0);
+  };
 
   // If card details is rendered add special class
   const cardClasses = `${styles.cardItem} ${renderCardDetails ? styles['special'] : ''}`;
-
+  
   return (
 
 
@@ -35,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
       <div className={styles.details}>
         <h1 className={styles.title}>{name}</h1>
-        <p className={styles.price}>{price}</p>
+        <p className={styles.price}>USD {productPrice(price)}</p>
       </div>
 
       {renderCardDetails &&  <CardDetails 

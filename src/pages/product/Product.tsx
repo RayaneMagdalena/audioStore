@@ -57,6 +57,11 @@ const Product = () => {
   // Find product by id
   const product = products.find((product) => product.id === parseInt(id));
 
+  const productPrice = (price: string) => {
+    return parseFloat(price.replace(/[^0-9.]+/g, "")).toFixed(0);
+  };
+
+
   if (!product) {
     return <div>No products found</div>;
   }
@@ -66,7 +71,7 @@ const Product = () => {
 
       <NavBar />
       
-      <p className={styles.price}>{product.price}</p>
+      <p className={styles.price}>USD {productPrice(product.price)}</p>
       <h1 className={styles.title}>{product.name}</h1>
 
       <div className={styles.productInfo}>

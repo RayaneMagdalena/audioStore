@@ -5,11 +5,13 @@ import headset from "../../../public/images/headset.png";
 import star from "../../../public/images/star-filled.svg";
 import more from "../../../public/images/icon-more-vertical.svg";
 
+
 interface CardSearchProps {
   name: string;
   price: string;
   rating: number;
   reviews: number;
+  
 }
 
 const CardSearch: React.FC<CardSearchProps> = ({
@@ -19,8 +21,13 @@ const CardSearch: React.FC<CardSearchProps> = ({
   reviews,
 }) => {
 
+  const productPrice = (price: string) => {
+    return parseFloat(price.replace(/[^0-9.]+/g, "")).toFixed(0);
+  };
+
   return (
     <div className={styles.cardItem}>
+       
       <div className={styles.imageContainer}>
         <img 
         src={headset} 
@@ -32,7 +39,7 @@ const CardSearch: React.FC<CardSearchProps> = ({
       <div className={styles.cardInfo}>
         
          <h1 className={styles.cardTitle}>{name}</h1>
-         <p className={styles.cardPrice}>{price}</p>
+         <p className={styles.cardPrice}>USD {productPrice(price)}</p>
 
          <div className={styles.cardDetails}>
            <div className={styles.detailsContainer}>
@@ -53,6 +60,7 @@ const CardSearch: React.FC<CardSearchProps> = ({
         </div>
      
       </div>
+    
     </div>
   );
 };

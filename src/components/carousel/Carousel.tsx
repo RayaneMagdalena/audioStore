@@ -21,10 +21,12 @@ const Carousel: React.FC<CarouselProps> = ({ products }) => {
   // Limits the amount of cards displayed
   const limitedProducts = products.slice(0, 5);
 
+ 
   return (
     <div>
       <Swiper slidesPerView={2.06} spaceBetween={0}>
         {limitedProducts.map((product) => (
+
           <SwiperSlide key={product.id}>
             
             <Link to={`/products/${product.id}`} className={styles.link}>
