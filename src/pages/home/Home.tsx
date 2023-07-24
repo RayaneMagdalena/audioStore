@@ -1,9 +1,9 @@
 // styles
 import styles from "./Home.module.css";
 // React-Router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFetch } from "../../hooks/useFetch";
 // Components
 import NavBarHome from "../../components/navBarHome/NavBarHome";
@@ -11,12 +11,35 @@ import SearchInput from "../../components/searchInput/SearchInput";
 import Carousel from "../../components/carousel/Carousel";
 import FilterCategory from "../../components/filterCategory/FilterCategory";
 import CarouselFilter from "../../components/carouselFilter/CarouselFilter";
+// Firebase
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../services/firebase";
 
 
 
 const Home = () => {
+  // const [displayName, setDisplayName] = useState(null);
+  const [displayName, setDisplayName] = useState<string | null>(null);
   const [search, setSearch] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("Headsets");
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Usuário autenticado, defina o nome do usuário no estado
+        setDisplayName(user.displayName);
+      } else {
+        // Usuário não autenticado, redirecione para a página de login
+        navigate("/login");
+      }
+    });
+  
+    // Lembre-se de limpar o listener ao desmontar o componente
+    return () => unsubscribe();
+  }, []);
+
 
   const { data: products } = useFetch();
 
@@ -38,7 +61,7 @@ const Home = () => {
     <div>
       <div className={styles.greetingAndSearch}>
       <NavBarHome />
-        <p className={styles.greeting}>Hi, Andrea</p>
+        <p className={styles.greeting}>Hi, {displayName}</p>
 
         <h1 className={styles.title}>What are you looking for today?</h1>
 
@@ -79,3 +102,4 @@ const Home = () => {
 };
 
 export default Home;
+
