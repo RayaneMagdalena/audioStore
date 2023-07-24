@@ -25,10 +25,9 @@ const handleBacktoStore = () => {
   const { cartProducts, increaseQuantity, decreaseQuantity, removeFromCart } =
     useContext(CartContext);
 
-  const totalProductPrice = (product) => {
-    const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
-    return (productPrice * product.quantity).toFixed(0);
-  };
+    const productPrice = (price: string) => {
+      return parseFloat(price.replace(/[^0-9.]+/g, "")).toFixed(0);
+    };
 
   const totalPrice = useMemo(() => {
     const total = cartProducts.reduce((accumulator, product) => {
@@ -50,7 +49,7 @@ const handleBacktoStore = () => {
   return (
     <div>
       <NavBarCart />
-      <div className={styles.cardCartContainer}>
+      <div>
         {cartProducts.length === 0 ? (
           // Carrinho vazio
           <div className={styles.emptyCart}>
@@ -61,7 +60,7 @@ const handleBacktoStore = () => {
           </div>
         ) : (
           // Carrinho com produtos
-          <div>
+          <div className={styles.cardCartContainer}>
             {cartProducts.map((product) => (
               <div key={product.id} className={styles.cardCart}>
                 <img src={headset} alt="" className={styles.imageCart} />
@@ -69,7 +68,7 @@ const handleBacktoStore = () => {
                 <div>
                   <h1 className={styles.title}>{product.name}</h1>
 
-                  <p className={styles.price}>USD {totalProductPrice(product)}</p>
+                  <p className={styles.price}>USD {productPrice(product.price)}</p>
 
                   <div className={styles.cardFunctions}>
                     <div className={styles.quantityFunction}>

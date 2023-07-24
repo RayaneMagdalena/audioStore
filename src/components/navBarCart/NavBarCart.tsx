@@ -15,7 +15,7 @@ const NavBarCart = () => {
     const { cartProducts, removeFromCart } = useContext(CartContext);
 
     const handleGoBack = () => {
-        navigate("/products");
+        navigate(-1);
       };
 
       const handleClearCart = () => {
