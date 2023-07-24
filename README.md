@@ -6,6 +6,7 @@
 <p align="center">
 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#sobre">Sobre</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#tecnologias-utilizadas">Tecnologias Utilizadas</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#tecnologias-utilizadas">Layout</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
  </p>
 
 <br>
@@ -33,6 +34,12 @@ Trata-se do último desafio do Programa de Bolsas da Compass UOL.
 - <p>GitHub</p>
 - <p>Figma</p>
   
+---
+
+## Layout
+
+Você pode visualizar o layout do projeto através [DESSE LINK]([https://www.figma.com/community/file/1187422022288947321](https://www.figma.com/file/MjiVCOdjoNhMATJE0K8nud/Challenge-03---Week-12-(Copy)?type=design&node-id=4-2&mode=design&t=FYEmDa5BaO6lNaHF-0)). 
+
 ---
 
 ## Projeto desenvolvido por:
