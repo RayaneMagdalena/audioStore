@@ -20,7 +20,7 @@ const Cart = () => {
   // Product price X quantity
   const totalProductPrice = (product) => {
     const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
-    return (productPrice * product.quantity).toFixed(2);
+    return (productPrice * product.quantity).toFixed(0);
   };
 
   // Total purchase price
@@ -30,7 +30,7 @@ const Cart = () => {
       return accumulator + productPrice * product.quantity;
     }, 0);
 
-    return total.toFixed(2);
+    return total.toFixed(0);
   }, [cartProducts]);
 
   // Total number of items
