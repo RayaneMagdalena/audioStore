@@ -33,6 +33,7 @@ const Home = () => {
     (product) => product.category === selectedCategory
   );
 
+  
   return (
     <div>
       <div className={styles.greetingAndSearch}>
@@ -56,7 +57,7 @@ const Home = () => {
           selectedCategory={selectedCategory}
           handleCategorySelect={handleCategorySelect}
         />
-       
+      
         <CarouselFilter 
         products={filteredProducts} />
 

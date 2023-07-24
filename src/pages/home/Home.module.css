@@ -1,5 +1,5 @@
 .greetingAndSearch {
-    padding: 2rem 1.5rem 0 1.5rem;
+    padding: 1rem 1.5rem 0 1.5rem;
 
 }
 
@@ -7,7 +7,7 @@
     color: #000;
     font-size: 1rem;
     font-weight: 400;
-    padding-top: 2.2rem;
+    padding-top: 2rem;
     }
 
 .title {
@@ -20,7 +20,7 @@
 }
 
 .carouselsContainer {
-    height: 75vh;
+    height: 69vh;
     margin-top: 1.5rem;
 
     padding-top: 2rem;
