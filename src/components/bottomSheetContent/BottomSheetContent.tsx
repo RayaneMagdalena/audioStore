@@ -46,7 +46,7 @@ const BottomSheetContent: React.FC<BottomSheetContentProps> = ({
     />
 
     <p className={styles.sheetSubtitle}>Sort By</p>
-    <div className={styles.sheetButtonsSort}>
+    <div className={styles.sheetSortButtons}>
       <button
         className={`${styles.sheetSortButton} ${sortBy === "rating" ? styles.active : "" }`}
         onClick={() => handleSortBySelect("rating")}
