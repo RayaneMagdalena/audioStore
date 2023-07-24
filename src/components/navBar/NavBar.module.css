@@ -1,10 +1,10 @@
 .navBarContainer {
-display: flex;
-justify-content: space-between;
-padding: .8rem 1.5rem;
-margin-top: .5rem ;
+    display: flex;
+    justify-content: space-between;
+    padding: .8rem 1.5rem;
+    margin-top: .5rem;
 
-position: relative;
+    position: relative;
 }
 
 .title {
@@ -19,26 +19,22 @@ position: relative;
 
 .icon {
     width: 1.8rem;
-height: 1.8rem;
-flex-shrink: 0;
+    height: 1.8rem;
+    flex-shrink: 0;
 }
 
 .quantityProducts {
-     width: 1.2rem;
-height: 1.2rem;
-border-radius: 50%;
-background-color: #0ACF83;
-color: #fff;
-font-size: .6rem;
-display: flex;
-justify-content: center;
-align-items: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #0ACF83;
+    color: #fff;
+    font-size: .6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-position: absolute;
-top: 1.7rem;
-left: 21.6rem;
+    position: absolute;
+    top: 1.7rem;
+    left: 21.6rem;
 }
-
-
-
-

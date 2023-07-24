@@ -6,20 +6,25 @@ import shoppingCart from "../../../public/images/icon-shopping-cart.svg";
 // React-Router
 import { useNavigate } from "react-router-dom";
 // Context
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
 interface NavBarProps {
   title: string;
- }
+}
 
 const NavBar: React.FC<NavBarProps> = ({ title }) => {
   const { cartProducts } = useContext(CartContext);
   const navigate = useNavigate();
-  
-  const cartQuantify = cartProducts.length;
 
-  
+  const totalItems = useMemo(() => {
+    const total = cartProducts.reduce((accumulator, product) => {
+      return accumulator + product.quantity;
+    }, 0);
+
+    return total;
+  }, [cartProducts]);
+
   const handleGoBack = () => {
     navigate(-1);
   };
@@ -30,35 +35,20 @@ const NavBar: React.FC<NavBarProps> = ({ title }) => {
 
   return (
     <div className={styles.navBarContainer}>
-      <button 
-      onClick={handleGoBack}
-      className={styles.button} 
-      >
-        <img 
-        src={chevronLeft}
-        alt="" 
-        className={styles.icon} 
-        />
+      <button onClick={handleGoBack} className={styles.button}>
+        <img src={chevronLeft} alt="" className={styles.icon} />
       </button>
 
       <h1 className={styles.title}>{title}</h1>
 
-      <button 
-      onClick={handleGoToCart}
-      className={styles.button} 
-      >
-        <img 
-        src={shoppingCart} 
-        alt=""
-        className={styles.icon} 
-         />
+      <button onClick={handleGoToCart} className={styles.button}>
+        <img src={shoppingCart} alt="" className={styles.icon} />
 
-        {cartQuantify > 0 && (
+        {totalItems > 0 && (
           <div className={styles.quantityProducts}>
-            <p>{cartQuantify}</p>
+            <p>{totalItems}</p>
           </div>
         )}
-       
       </button>
     </div>
   );
