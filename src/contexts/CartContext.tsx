@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from "react";
 
 // Type cart product
 type CartProduct = {
@@ -27,18 +27,23 @@ export const CartContext = createContext<CartContextType>({
 });
 
 // Create provider
-export const CartProvider: React.FC = ({ children }: React.PropsWithChildren<{}>) => {
+export const CartProvider: React.FC = ({
+  children,
+}: React.PropsWithChildren<{}>) => {
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
 
-   // Add the product to the cart
+  // Add the product to the cart
   const addToCart = (product: CartProduct) => {
     const existingProduct = cartProducts.find((p) => p.id === product.id);
- // If the product already exists
+    // If the product already exists
     if (existingProduct) {
       console.log("Este produto já foi adicionado ao seu carrinho.");
-     // New product
+      // New product
     } else {
-      setCartProducts((prevProducts) => [...prevProducts, { ...product, quantity: 1 }]);
+      setCartProducts((prevProducts) => [
+        ...prevProducts,
+        { ...product, quantity: 1 },
+      ]);
     }
   };
 
@@ -46,7 +51,9 @@ export const CartProvider: React.FC = ({ children }: React.PropsWithChildren<{}>
   const increaseQuantity = (productId: number) => {
     setCartProducts((prevProducts) =>
       prevProducts.map((product) =>
-        product.id === productId ? { ...product, quantity: product.quantity + 1 } : product
+        product.id === productId
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
       )
     );
   };
@@ -56,7 +63,9 @@ export const CartProvider: React.FC = ({ children }: React.PropsWithChildren<{}>
     setCartProducts((prevProducts) =>
       prevProducts.map((product) =>
         // Set minimum quantity of products in the cart
-        product.id === productId ? { ...product, quantity: Math.max(product.quantity - 1, 1) } : product
+        product.id === productId
+          ? { ...product, quantity: Math.max(product.quantity - 1, 1) }
+          : product
       )
     );
   };
@@ -70,7 +79,13 @@ export const CartProvider: React.FC = ({ children }: React.PropsWithChildren<{}>
 
   return (
     <CartContext.Provider
-      value={{ cartProducts, addToCart, increaseQuantity, decreaseQuantity, removeFromCart }}
+      value={{
+        cartProducts,
+        addToCart,
+        increaseQuantity,
+        decreaseQuantity,
+        removeFromCart,
+      }}
     >
       {children}
     </CartContext.Provider>

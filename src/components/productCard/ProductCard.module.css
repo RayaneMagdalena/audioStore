@@ -2,37 +2,40 @@
     width: 10rem;
     height: 14rem;
     padding: .9rem .6rem;
+
+    background-color: #FFF;
+    border-radius: .9rem;
+
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
     gap: 1.25rem;
-    border-radius: .9rem;
-    background-color: #FFF; 
-    justify-content: space-between;
 }
 
 .image {
     width: 7.8125rem;
     height: 7.8125rem;
-    }
+}
+
 .details {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
 }
+
 .title {
+    font-size: 0.8rem;
+    font-weight: 400;
     color: #000;
-font-size: 0.8rem;
-font-weight: 400;
 }
 
 .price {
-color: #000;
-font-size: 0.7rem;
-font-weight: 700;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #000;
 }
 
 .cardItem.special {
     height: 17rem;
-    
 }

@@ -11,6 +11,8 @@ import CardSearch from "../../components/cardSearch/CardSearch";
 import NavBar from "../../components/navBar/NavBar";
 
 
+
+
 const Search = () => {
   const [search, setSearch] = useState<string>("");
 
@@ -32,6 +34,9 @@ const Search = () => {
   const topRatedProducts = sortedProducts.slice(0, 3);
 
   return (
+    
+
+
     <div className={styles.searchContainer}>
       <NavBar 
       title={"Search"}

@@ -30,17 +30,11 @@ const Home = () => {
       if (user) {
         // Usuário autenticado, defina o nome do usuário no estado
         setDisplayName(user.displayName);
-      } else {
-        // Usuário não autenticado, redirecione para a página de login
-        navigate("/login");
       }
     });
-  
-    // Lembre-se de limpar o listener ao desmontar o componente
+      
     return () => unsubscribe();
   }, []);
-
-
   const { data: products } = useFetch();
 
   if (!products) {

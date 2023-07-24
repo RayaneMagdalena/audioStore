@@ -42,7 +42,7 @@ const SignIn = () => {
           let systemErrorMessage
 
           if(error.message.includes("Error (auth/wrong-password)")) {
-            systemErrorMessage = "Password must contain at least 6 characters";
+            systemErrorMessage = "Incorrect password";
           } else if (error.message.includes(" Error (auth/user-not-found)")) {
             systemErrorMessage = "User not found";
           } 

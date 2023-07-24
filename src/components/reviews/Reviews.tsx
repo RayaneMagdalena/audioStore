@@ -56,7 +56,10 @@ const Reviews: React.FC<ReviewsProps> = ({ reviews }) => {
     <>
       {reviews.map((review) => (
         <div key={review.id} className={styles.productReview}>
-          <img src={user} alt="" className={styles.reviewImageUser} />
+          <img 
+          src={user}
+          alt="image User" 
+          className={styles.reviewImageUser} />
           <div>
             <h3 className={styles.reviewUser}>{review.user}</h3>
             <div className={styles.starReviewContainer}>

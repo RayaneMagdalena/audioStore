@@ -23,11 +23,14 @@ const AllProducts = () => {
   const [sortBy, setSortBy] = useState<string>("rating");
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
+
+  // fetch with API data
   const { data: products } = useFetch();
 
   useEffect(() => {
     if (products) {
-      setAllProducts(products); // products without applied filter
+      // products without applied filter
+      setAllProducts(products);
     }
   }, [products]);
 
@@ -45,12 +48,13 @@ const AllProducts = () => {
     setSortBy(sortOption);
   };
 
- // Filter and ordering of products
+  // Filter and ordering of products
   const applyFilter = () => {
     const filteredProductsCategory = products.filter(
       (product) => product.category === selectedCategory
     );
 
+    // Order of products
     let sortedProducts = filteredProductsCategory.slice();
 
     if (sortBy === "rating") {
@@ -86,20 +90,23 @@ const AllProducts = () => {
 
   return (
     <div className={styles.productsContainer}>
-
-<NavBar title={""}/>
+      
+      <NavBar title={""} />
 
       <div className={styles.header}>
         <p className={styles.feature}>Featured products</p>
         <h1 className={styles.title}>See all products</h1>
 
         <button onClick={() => setOpen(true)} className={styles.button}>
-          <img src={iconSlider} alt="" className={styles.iconSlider} />
+          <img 
+          src={iconSlider} 
+          alt="" 
+          className={styles.iconSlider} />
           Filter
         </button>
 
         <BottomSheet open={open}>
-        <BottomSheetContent
+          <BottomSheetContent
             setOpen={setOpen}
             selectedCategory={selectedCategory}
             handleCategorySelect={handleCategorySelect}

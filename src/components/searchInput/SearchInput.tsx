@@ -14,7 +14,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ search, setSearch }) => {
       
       <img 
       src={iconSearch} 
-      alt=""
+      alt="Icon Search"
       className={styles.iconSearch} />
       
       <input

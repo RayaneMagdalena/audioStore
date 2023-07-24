@@ -1,10 +1,6 @@
 // Styles
 import styles from "./Cart.module.css";
 // Image and Icon
-import headset from "../../../public/images/headset.png";
-import plus from "../../../public/images/icon-plus.svg";
-import minus from "../../../public/images/icon-minus.svg";
-import trash from "../../../public/images/icon-trash.svg";
 import chevron from "../../../public/images/button-icon-chevron-right.svg";
 // Hook
 import { useContext, useMemo } from "react";
@@ -19,6 +15,7 @@ import { CartContext } from "../../contexts/CartContext";
 const Cart = () => {
 const navigate = useNavigate();
 
+// button route
 const handleBacktoStore = () => {
   navigate("/products")
 }
@@ -30,6 +27,7 @@ const handleBacktoStore = () => {
       return parseFloat(price.replace(/[^0-9.]+/g, "")).toFixed(0);
     };
 
+    // Total purchase price
   const totalPrice = useMemo(() => {
     const total = cartProducts.reduce((accumulator, product) => {
       const productPrice = parseFloat(product.price.replace(/[^0-9.]+/g, ""));
@@ -39,6 +37,7 @@ const handleBacktoStore = () => {
     return total.toFixed(0);
   }, [cartProducts]);
 
+  // Total purchase items
   const totalItems = useMemo(() => {
     const total = cartProducts.reduce((accumulator, product) => {
       return accumulator + product.quantity;
@@ -52,7 +51,7 @@ const handleBacktoStore = () => {
       <NavBarCart />
       <div>
         {cartProducts.length === 0 ? (
-          // Carrinho vazio
+          // Empty Cart
           <div className={styles.emptyCart}>
             <p className={styles.emptyCartMessage}>Your cart is empty :( </p>
             <button className={styles.emptyCartButton}
@@ -60,7 +59,7 @@ const handleBacktoStore = () => {
             >Back to store</button>
           </div>
         ) : (
-          // Carrinho com produtos
+          // Cart with products
           <div className={styles.cardCartContainer}>
             <div className={styles.cards}>
             {cartProducts.map((product) => (
