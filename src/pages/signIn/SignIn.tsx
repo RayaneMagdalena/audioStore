@@ -3,7 +3,6 @@ import styles from "./SignIn.module.css";
 // Icon
 import iconEmail from '../../../public/images/icon-email.svg';
 import iconLock from '../../../public/images/icon-lock.svg';
-// Icon Social Midia
 import google from '../../../public/images/google.svg';
 import facebook from '../../../public/images/facebook-auth.svg';
 import apple from '../../../public/images/apple.svg';
@@ -20,12 +19,17 @@ const SignIn = () => {
     
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+
+    const [errorMessage, setErrorMessage] = useState<string>("");
+
        
-    // Login with Email and Password
+    // SignIn with Email and Password
     const onLogin = (e) => {
       e.preventDefault();
+
       signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+
           const user = userCredential.user;
           navigate("/home")
           console.log(user);
@@ -34,6 +38,19 @@ const SignIn = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode, errorMessage)
+
+          let systemErrorMessage
+
+          if(error.message.includes("Error (auth/wrong-password)")) {
+            systemErrorMessage = "Password must contain at least 6 characters";
+          } else if (error.message.includes(" Error (auth/user-not-found)")) {
+            systemErrorMessage = "User not found";
+          } 
+          else {
+            systemErrorMessage = "An error occurred, please try again later"
+          }
+          
+          setErrorMessage(systemErrorMessage);
       });
   }
 
@@ -114,6 +131,8 @@ const SignIn = () => {
         className={styles.button}>
           Sign In
         </button>
+
+        {errorMessage && <p className={styles.error}>{errorMessage}</p>}
 
               <div className={styles.buttonContainer}>
         <button>
