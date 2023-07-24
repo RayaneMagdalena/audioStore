@@ -14,40 +14,35 @@ interface CarouselFilterProps {
   products: Product[];
 }
 
-const CarouselFilter:  React.FC<CarouselFilterProps> = ({ products }) => {
+const CarouselFilter: React.FC<CarouselFilterProps> = ({ products }) => {
   return (
     <div>
       <Swiper slidesPerView={1.03}>
         {products.map((product) => (
-          <SwiperSlide key={product.id}>
-           <Link to={`/products/${product.id}`} className={styles.link}>
-            <div className={styles.cardItem}>
-              
-              <div className={styles.cardDetails}>
-                 <h1 className={styles.cardTitle}>{product.name}</h1>
-                
-                 <div className={styles.shopNowContainer}>
-                   <p className={styles.shopNow}>Shop now</p>
-                   
-                   <img 
-                   src={iconArrow} 
-                   alt=""
-                   className={styles.iconArrow}
-                   />
-                 </div>
+        
+        <SwiperSlide key={product.id}>
+           
+            <Link to={`/products/${product.id}`} className={styles.link}>
+             
+              <div className={styles.cardItem}>
+                <div className={styles.cardDetails}>
+                  <h1 className={styles.cardTitle}>{product.name}</h1>
+
+                  <div className={styles.shopNowContainer}>
+                    <p className={styles.shopNow}>Shop now</p>
+
+                    <img src={iconArrow} alt="" className={styles.iconArrow} />
+                  </div>
+                </div>
+
+                <img src={headset} alt="" className={styles.cardImage} />
               </div>
-              
-              <img 
-              src={headset} 
-              alt=""
-              className={styles.cardImage}
-              />
-                      
-            </div>
-              </Link>
+           
+            </Link>
          
           </SwiperSlide>
-        ))}
+       
+       ))}
       </Swiper>
     </div>
   );

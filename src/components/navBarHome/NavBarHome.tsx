@@ -14,6 +14,7 @@ import { useState } from "react";
 const NavBarHome = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Open and close Menu
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };

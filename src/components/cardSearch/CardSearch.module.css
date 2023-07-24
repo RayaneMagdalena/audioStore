@@ -1,6 +1,7 @@
 .cardItem {
-    display: flex;
     height: 4.6rem;
+   
+    display: flex;
     align-items: flex-start;
     gap: 0.9rem;
 }
@@ -8,12 +9,13 @@
 .imageContainer {
     width: 4.6875rem;
     height: 4.6875rem;
+    
+    background: #F6F6F6;
     border-radius: 0.625rem;
-background: var(--colors-grey-light-1, #F6F6F6);
-display: flex;
-justify-content: center;
-align-items: center;
-
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cardImage {
@@ -21,33 +23,34 @@ align-items: center;
 }
 
 .cardInfo {
+    width: 14.7rem;
+
     display: flex;
     flex-direction: column;
-    width: 14.7rem;
     align-items: flex-start;
 }
 
 .cardTitle {
-    color: #000;
     font-size: 1rem;
+    color: #000;
 }
 
 .cardPrice {
-    color: #000;
-    font-size: .8rem;
-    font-weight: 700;
     padding-top: .2rem;
     padding-bottom: .8rem;
-
+    
+    font-size: .8rem;
+    font-weight: 700;
+    color: #000;
 }
 
 .cardDetails {
+    position: relative;
+   
+    width: 100%;
+    
     display: flex;
     justify-content: space-between;
-    width: 100%;
-
-    position: relative;
-    
 }
 
 .detailsContainer {
@@ -57,19 +60,21 @@ align-items: center;
 .iconStar {
     width: 1rem;
     height: 1rem;
-    }
+}
 
 .iconMore {
+    position: absolute;
+    top: -.3rem;
+    left: 14.3rem;
+   
     width: 1.25rem;
-height: 1.25rem;
-position: absolute;
-top: -.3rem;
-left: 14.3rem;
+    height: 1.25rem;
 }
 
 .detail {
+    padding-right: .6rem;
+    padding-left: .2rem;
+ 
+    font-size: 0.75rem;
     color: #000;
-font-size: 0.75rem;
-padding-right: .6rem;
-padding-left: .2rem;
-} 
+}

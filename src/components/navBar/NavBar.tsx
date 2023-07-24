@@ -17,6 +17,7 @@ const NavBar: React.FC<NavBarProps> = ({ title }) => {
   const { cartProducts } = useContext(CartContext);
   const navigate = useNavigate();
 
+  // Total amount of items
   const totalItems = useMemo(() => {
     const total = cartProducts.reduce((accumulator, product) => {
       return accumulator + product.quantity;
@@ -25,6 +26,7 @@ const NavBar: React.FC<NavBarProps> = ({ title }) => {
     return total;
   }, [cartProducts]);
 
+  // Button routes
   const handleGoBack = () => {
     navigate(-1);
   };

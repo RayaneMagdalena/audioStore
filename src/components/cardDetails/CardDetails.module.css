@@ -1,9 +1,8 @@
 .cardDetails {
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
-    width: 100%;
-  
-    
 }
 
 .detailsContainer {
@@ -19,16 +18,17 @@
 .iconStar {
     width: 1rem;
     height: 1rem;
-    }
+}
 
 .iconMore {
     width: 1.25rem;
-height: 1.25rem;
+    height: 1.25rem;
 }
 
 .detail {
+    padding-right: .6rem;
+    padding-left: .2rem;
+
+    font-size: .7rem;
     color: #000;
-font-size: .7rem;
-padding-right: .6rem;
-padding-left: .2rem;
-} 
+}

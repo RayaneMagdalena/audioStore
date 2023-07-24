@@ -1,15 +1,16 @@
 .navBarContainer {
+    position: relative;
+    
+    margin-top: .5rem;
+    padding: .8rem 1.5rem;
+    
     display: flex;
     justify-content: space-between;
-    padding: .8rem 1.5rem;
-    margin-top: .5rem;
-
-    position: relative;
 }
 
 .title {
-    color: #000;
     font-size: 1rem;
+    color: #000;
 }
 
 .button {
@@ -20,21 +21,23 @@
 .icon {
     width: 1.8rem;
     height: 1.8rem;
-    flex-shrink: 0;
 }
 
 .quantityProducts {
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background-color: #0ACF83;
-    color: #fff;
-    font-size: .6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     position: absolute;
     top: 1.7rem;
     left: 21.6rem;
+
+    width: 1rem;
+    height: 1rem;
+
+    background-color: #0ACF83;
+    border-radius: 50%;
+
+    font-size: .6rem;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

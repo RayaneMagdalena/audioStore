@@ -21,6 +21,7 @@ const CardSearch: React.FC<CardSearchProps> = ({
   reviews,
 }) => {
 
+  // Remove characters from price
   const productPrice = (price: string) => {
     return parseFloat(price.replace(/[^0-9.]+/g, "")).toFixed(0);
   };

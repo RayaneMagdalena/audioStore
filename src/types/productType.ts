@@ -9,6 +9,7 @@ export interface Product {
     created_at: string;
     reviews: Review[];
     id: number;
+    quantity: number;
   }
   
   export interface Review {

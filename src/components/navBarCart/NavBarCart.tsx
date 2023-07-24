@@ -5,42 +5,38 @@ import chevron from "../../../public/images/icon-chevron-left.svg";
 import trash from "../../../public/images/icon-trash-navBar.svg";
 // React-Router
 import { useNavigate } from "react-router-dom";
-// Hooks 
+// Hooks
 import { useContext } from "react";
 // Context
 import { CartContext } from "../../contexts/CartContext";
 
 const NavBarCart = () => {
-    const navigate = useNavigate();
-    const { cartProducts, removeFromCart } = useContext(CartContext);
+  const { cartProducts, removeFromCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
-    const handleGoBack = () => {
-        navigate(-1);
-      };
+  // button route
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
-      const handleClearCart = () => {
-        // Remove all products from the cart
-        cartProducts.forEach((product) => removeFromCart(product.id));
-      };
-    
+  // Remove all products from the cart
+  const handleClearCart = () => {
+    cartProducts.forEach((product) => removeFromCart(product.id));
+  };
 
   return (
     <div className={styles.navBarContainer}>
-        <button 
-        onClick={handleGoBack}
-        className={styles.button}>
-<img src={chevron} alt="" />
-        </button>
+      <button onClick={handleGoBack} className={styles.button}>
+        <img src={chevron} alt="" />
+      </button>
 
-        <h1 className={styles.title}>Shopping Cart</h1>
-        
-        <button 
-        onClick={handleClearCart}
-        className={styles.button}>
-<img src={trash} alt="" className={styles.iconTrash} />
-        </button>
+      <h1 className={styles.title}>Shopping Cart</h1>
+
+      <button onClick={handleClearCart} className={styles.button}>
+        <img src={trash} alt="" className={styles.iconTrash} />
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default NavBarCart
+export default NavBarCart;
