@@ -4,7 +4,40 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
 
+.emptyCart {
+height: 80vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 6rem;
+
+}
+
+.emptyCartMessage {
+color: #000;
+font-size: 1rem;
+}
+
+.emptyCartButton {
+    display: flex;
+width: 20.375rem;
+height: 3.125rem;
+padding: 1.25rem 0.625rem;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
+flex-shrink: 0;
+background: #0ACF83;
+border: none;
+color: #FFF;
+font-size: 1rem;
+border-radius: 0.625rem;
+background: #0ACF83;
+cursor: pointer;
 }
 
 .cardCart {
