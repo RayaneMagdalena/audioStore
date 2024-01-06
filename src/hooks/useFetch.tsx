@@ -7,7 +7,8 @@ export const useFetch = () => {
   const [data, setData] = useState<Product[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const url = "https://run.mocky.io/v3/04a1f277-e7d7-4bca-890c-b7ed007ccce5";
+  const url = "https://run.mocky.io/v3/9b7a0ad2-865d-4ce6-8ecf-0b116eb1fdfb";
+  // const url = "https://run.mocky.io/v3/04a1f277-e7d7-4bca-890c-b7ed007ccce5";
 
   useEffect(() => {
     const fetchData = async () => {

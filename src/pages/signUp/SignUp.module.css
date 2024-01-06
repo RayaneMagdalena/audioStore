@@ -85,3 +85,37 @@ img {
 .signUp a {
     color: #0ACF83;   
 }
+
+.buttonContainer {
+    display: flex;
+    gap: .9rem;
+}
+
+.buttonSocialMidia {
+    border: none;
+    background-color: transparent;
+
+    display: flex;
+    width: 3.25rem;
+    height: 3.25rem;
+    padding: 0.89894rem 1.06275rem 0.92106rem 1.00956rem;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5875rem;
+    background: #FFF;
+}
+
+.buttonIconFacebook {
+    width: 3.25rem;
+    height: 3.25rem;
+}
+
+.error {
+    background: rgba(233, 180, 180, .7);
+    width: 100%;
+    padding: .3rem;
+    text-align: center;
+    border-radius: .3rem;
+    color: rgb(155, 21, 21);
+}

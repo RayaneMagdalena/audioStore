@@ -44,7 +44,7 @@ const SignUp = () => {
             if(error.message.includes("Error (auth/email-already-in-use)")) {
               systemErrorMessage = "User already registered";
             } else if (error.message.includes("Password should be at least 6 characters (auth/weak-password)")) {
-              systemErrorMessage = "Password must be at least 6 characters long";
+              systemErrorMessage = "Password should be at least 6 characters";
             } 
             else {
               systemErrorMessage = "An error occurred, please try again later"
@@ -138,7 +138,7 @@ const handleClickFacebook = (e) => {
         {errorMessage && <p className={styles.error}>{errorMessage}</p>}
 
         <div className={styles.buttonContainer}>
-        <button>
+        <button className={styles.buttonSocialMidia}>
           <img 
           src={apple} 
           alt=""
@@ -146,18 +146,18 @@ const handleClickFacebook = (e) => {
           />
         </button>
 
-        <button
+        <button className={styles.buttonSocialMidia}
         onClick={handleClickFacebook}
         >
           <img 
           src={facebook} 
           alt=""
-          className={styles.buttonIcon}
+          className={styles.buttonIconFacebook}
           />
         </button>
  
 
-        <button
+        <button className={styles.buttonSocialMidia}
         onClick={handleClickGoogle}
         >
           <img 

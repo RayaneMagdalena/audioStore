@@ -135,7 +135,7 @@ const SignIn = () => {
         {errorMessage && <p className={styles.error}>{errorMessage}</p>}
 
               <div className={styles.buttonContainer}>
-        <button>
+        <button className={styles.buttonSocialMidia}>
           <img 
           src={apple} 
           alt=""
@@ -143,18 +143,18 @@ const SignIn = () => {
           />
         </button>
 
-        <button
+        <button className={styles.buttonSocialMidia}
         onClick={handleClickFacebook}
         >
           <img 
           src={facebook} 
           alt=""
-          className={styles.buttonIcon}
+          className={styles.buttonIconFacebook}
           />
         </button>
  
 
-        <button
+        <button className={styles.buttonSocialMidia}
         onClick={handleClickGoogle}
         >
           <img 
